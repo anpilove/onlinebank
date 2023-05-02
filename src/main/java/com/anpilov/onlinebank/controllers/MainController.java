@@ -29,7 +29,7 @@ public class MainController {
 
 
     @RequestMapping("/")
-    public String viewHomePage(Model model){
+    public String viewHomePage(Model model, @Param("keyword") String keyword){
         String email = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
         System.out.println(email);
         Matcher matcher = Pattern.compile("(Username=)([^,]+)").matcher(email);
@@ -40,9 +40,9 @@ public class MainController {
 
         }
         Long user_id = userRepository.findByEmail(email).getId();
-        String user_name = userRepository.findByEmail(email).getFirstName();
-        List<Transaction> listTran = service.listAllTranByUser(user_id);
-        model.addAttribute("userName", user_name);
+        User user = userRepository.findByEmail(email);
+        List<Transaction> listTran = service.listAllTranByUser(user_id, keyword);
+        model.addAttribute("User", user);
         model.addAttribute("listTran", listTran);
         return "index";
     }

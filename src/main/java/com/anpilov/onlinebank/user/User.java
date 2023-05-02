@@ -1,9 +1,10 @@
 package com.anpilov.onlinebank.user;
 
 import jakarta.persistence.*;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
+
+import java.text.DecimalFormat;
 
 @Entity
 @Table(name = "User", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -11,6 +12,7 @@ public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
 
 	@Column(name = "first_name")
@@ -19,14 +21,18 @@ public class User {
 	@Column(name = "last_name")
 	private String lastName;
 
-//	@NotNull
-//	@Temporal(TemporalType.TIMESTAMP)
-//	@Column(name = "data_birth")
-//	private String dataBirth;
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "data_birth")
+	private String dataBirth;
 
+	@Column(name = "email")
 	private String email;
 
+	@Column(name = "password")
 	private String password;
+
+	@Column(name = "money")
+	private Double money;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
@@ -36,23 +42,23 @@ public class User {
 
 	}
 
-	public User(String firstName, String lastName, String email, String password, Collection<Role> roles) {
+	public User(String firstName, String lastName, String email, String password, String dataBirth, Double money, Collection<Role> roles) {
 
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
+		this.dataBirth = dataBirth;
+		this.money = (double) 0;
 		this.roles = roles;
-	}
-
-
-	public User(Long id, String email) {
-		this.id = id;
-		this.email = email;
 	}
 
 	public Long getId() {
 		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -71,6 +77,14 @@ public class User {
 		this.lastName = lastName;
 	}
 
+	public String getDataBirth() {
+		return dataBirth;
+	}
+
+	public void setDataBirth(String dataBirth) {
+		this.dataBirth = dataBirth;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -87,6 +101,14 @@ public class User {
 		this.password = password;
 	}
 
+	public Double getMoney() {
+		return money;
+	}
+
+	public void setMoney(Double money) {
+		this.money = money;
+	}
+
 	public Collection<Role> getRoles() {
 		return roles;
 	}
@@ -94,5 +116,4 @@ public class User {
 	public void setRoles(Collection<Role> roles) {
 		this.roles = roles;
 	}
-
 }

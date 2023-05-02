@@ -16,17 +16,13 @@ public class TransactionService {
     @Autowired
     private TransactionRepository repo;
 
-    public List<Transaction> listAll(String keyword){
+    public List<Transaction> listAllTranByUser(Long user_id, String keyword){
         if (keyword != null){
-            return repo.search(keyword);
+            return repo.searchByUser_id(user_id, keyword);
         }
-        return repo.findAll();
-    }
-
-
-    public List<Transaction> listAllTranByUser(Long user_id) {
         return repo.findByUser_id(user_id);
     }
+
 
     public void save(Transaction transaction){
         repo.save(transaction);

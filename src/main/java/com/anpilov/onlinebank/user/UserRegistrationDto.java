@@ -6,6 +6,9 @@ public class UserRegistrationDto {
 	private String lastName;
 	private String email;
 	private String password;
+	private String dataBirth;
+
+
 
 
 	public UserRegistrationDto() {
@@ -41,5 +44,13 @@ public class UserRegistrationDto {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getDataBirth() {
+		return dataBirth;
+	}
+
+	public void setDataBirth(String dataBirth) {
+		this.dataBirth = dataBirth;
 	}
 }
