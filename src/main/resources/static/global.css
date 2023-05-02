@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-dm-sans: "DM Sans";
+
+  /* font sizes */
+  --font-size-64xl: 64px;
+  --font-size-17xl: 36px;
+  --font-size-13xl: 32px;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-100: rgba(0, 0, 0, 0.5);
+  --color-dimgray: #696969;
+  --color-gainsboro: #d9d9d9;
+
+  /* Gaps */
+  --gap-19xl: 38px;
+
+  /* Paddings */
+  --padding-3xs: 10px;
+  --padding-5xs: 8px;
+  --padding-4xs: 9px;
+
+  /* border radiuses */
+  --br-sm: 14px;
+  --br-3xs: 10px;
+}
