@@ -59,15 +59,12 @@
                 </form>
             </div>
             <table class="main-tran" id="1">
-                <thead class="tran-header">
-                <tr class="column-names">
+                <thead class="column-names">
                     <th class="div2" scope="col">Название</th>
                     <th class="div3" scope="col">Дата</th>
                     <th class="div4" scope="col">Сумма</th>
                     <th class="div5" scope="col">Категория</th>
-                </tr>
                 </thead>
-
                 <tbody>
                     <tr th:each="Tran: ${listTran}" class="tran">
 
@@ -82,7 +79,7 @@
                         <th scope="row" class="div8">
                             <p class="p" th:text="${Tran.data}">22.02.22</p>
                         </th>
-                        <th scope="row" class="div9" th:text="${Tran.money}">-1000р</th>
+                        <th scope="row" class="div9" th:style="${User.id == Tran.id_payee} ? 'color: green;' : 'color: red;'" th:text="${User.id == Tran.id_payee} ? '+' + ${Tran.money} + '₽': '-' + ${Tran.money} + '₽' ">1000</th>
                     </tr>
                 </tbody>
             </table>
@@ -95,6 +92,22 @@
         window.location = "[[@{/}]]";
     }
 </script>
+
+<script>
+    var paymentId = "{{Tran.id_payee}}";
+    var paymentElement = document.getElementById("payment-" + paymentId);
+    var paymentAmount = parseInt(paymentElement.innerText);
+
+    if (paymentId == currentUserId) {
+        paymentElement.style.color = "green";
+        paymentElement.innerText = "+" + paymentAmount + "р";
+    } else {
+        paymentElement.style.color = "red";
+        paymentElement.innerText = "-" + paymentAmount + "р";
+    }
+</script>
+
+
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.0.2/tablesort.min.js'></script>
 <script>

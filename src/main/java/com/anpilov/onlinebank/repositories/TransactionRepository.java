@@ -10,11 +10,11 @@ import java.util.List;
 
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
-    @Query("SELECT p FROM Transaction p WHERE CONCAT(p.id, ' ', p.id_payee, ' ', p.id_payer , ' ', p.money, ' ', p.type, ' ', p.data, ' ', p.details) LIKE %?2% and p.id_payer = ?1 ORDER BY p.data DESC ")
+    @Query("SELECT p FROM Transaction p WHERE CONCAT(p.id, ' ', p.id_payee, ' ', p.id_payer , ' ', p.money, ' ', p.type, ' ', p.data, ' ', p.details) LIKE %?2% and p.id_payer = ?1 or p.id_payee = ?1  ORDER BY p.data DESC ")
     List<Transaction> searchByUser_id(Long user_id, String keyword);
 
 
-    @Query("SELECT p FROM Transaction p WHERE p.id_payer = ?1 ORDER BY p.data DESC ")
+    @Query("SELECT p FROM Transaction p WHERE p.id_payer = ?1 or p.id_payee = ?1 ORDER BY p.data DESC ")
     List<Transaction> findByUser_id(Long user_id);
 
 }
