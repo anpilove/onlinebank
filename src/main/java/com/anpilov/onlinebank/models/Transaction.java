@@ -17,32 +17,61 @@ import org.jetbrains.annotations.NotNull;
 //        FOREIGN KEY (id_payee) REFERENCES Person (id)
 //        ) ENGINE=InnODB DEFAULT CHARSET=UTF8
 
+/**
 
+ The Transaction class represents a transaction made between two people.
+ Each transaction has an id, payer id, payee id, type, amount of money, date, and details.
+ The Transaction class maps to the "Transaction" table in the "OnlineBank" schema.
+ */
 @Entity
 @Table(name="Transaction", schema="OnlineBank")
 public class Transaction {
 
+    /**
+     * The unique identifier of the transaction.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
+    /**
+     * The id of the person who received the money.
+     */
     @Column(name = "payee_id")
     private Long id_payee;
 
+    /**
+     * The id of the person who paid the money.
+     */
     @Column(name = "payer_id")
     private Long id_payer;
 
+    /**
+     * The type of the transaction, such as "transfer" or "withdrawal".
+     */
+    @Column(name = "type")
     private String type;
-    private Integer money;
 
+    /**
+     * The amount of money involved in the transaction.
+     */
+    @Column(name = "money")
+    private Double money;
 
+    /**
+     * The date and time of the transaction.
+     */
     @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "data")
     private String data;
 
+    /**
+     * Details about the transaction, such as a description or reference number.
+     */
+    @Column(name = "details")
     private String details;
+
 
 
     public Long getId() {
@@ -77,11 +106,11 @@ public class Transaction {
         this.type = type;
     }
 
-    public Integer getMoney() {
+    public Double getMoney() {
         return money;
     }
 
-    public void setMoney(Integer money) {
+    public void setMoney(Double money) {
         this.money = money;
     }
 
@@ -99,5 +128,18 @@ public class Transaction {
 
     public void setDetails(String details) {
         this.details = details;
+    }
+
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "id=" + id +
+                ", id_payee=" + id_payee +
+                ", id_payer=" + id_payer +
+                ", type='" + type + '\'' +
+                ", money=" + money +
+                ", data='" + data + '\'' +
+                ", details='" + details + '\'' +
+                '}';
     }
 }

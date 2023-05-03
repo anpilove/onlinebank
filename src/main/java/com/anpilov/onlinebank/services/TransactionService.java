@@ -9,6 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
+
+/**
+
+ The TransactionService class is a service that provides methods for managing transactions in the OnlineBank application.
+ It interacts with the TransactionRepository to perform CRUD operations on transactions.
+ */
 @Service
 public class TransactionService {
 

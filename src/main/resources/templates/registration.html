@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Spring Security Demo</title>
+	<meta charset="UTF-8">
+<title>Регистрация</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
 <style>
 .navbar {
-	background-color: green;
+	background-color: gray;
+    height: 62px;
+}
+
+.navbar-brand {
+	font-size: 48px;
+}
+
+
+.navbar-inverse .navbar-brand {
+	color: black;
 }
 </style>
 <body>
 
-	<!-- create navigation bar ( header) -->
+
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -25,8 +35,8 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#" th:href="@{/}">Registration and
-					Login </a>
+				<a class="navbar-brand" href="#" th:href="@{/}">Регистрация
+					 </a>
 			</div>
 		</div>
 	</nav>
@@ -45,48 +55,46 @@
 
 				<!-- success message -->
 				<div th:if="${param.success}">
-					<div class="alert alert-info">You've successfully registered
-						to our awesome app!</div>
+					<div class="alert alert-info">Вы успешно зарегестрированы!</div>
 				</div>
 
 				<h1>Registration</h1>
 
 				<form th:action="@{/registration}" method="post" th:object="${user}">
 					<div class="form-group">
-						<label class="control-label" for="firstName"> First Name </label>
+						<label class="control-label" for="firstName"> Имя </label>
 						<input id="firstName" class="form-control" th:field="*{firstName}"
 							required autofocus="autofocus" />
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="lastName"> Last Name </label> <input
+						<label class="control-label" for="lastName"> Фамилия </label> <input
 							id="lastName" class="form-control" th:field="*{lastName}"
 							required autofocus="autofocus" />
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="email"> Email </label> <input
-							id="email" class="form-control" th:field="*{email}" required
-							autofocus="autofocus" />
+						<label class="control-label" for="email"> Почта </label>
+						<input id="email" class="form-control" th:field="*{email}" required autofocus pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+						<small class="form-text text-muted">Введите вашу почту в формате example@mail.com</small>
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="password"> Password </label> <input
+						<label class="control-label" for="password"> Пароль </label> <input
 							id="password" class="form-control" type="password"
 							th:field="*{password}" required autofocus="autofocus" />
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="dataBirth"> Data Birth </label>
+						<label class="control-label" for="dataBirth"> Дата рождения </label>
 						<input id="dataBirth" class="form-control" type = "date" th:field="*{dataBirth}"
 							   required autofocus="autofocus" />
 					</div>
 
 
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary">Register</button>
-						<span>Already registered? <a href="/index1" th:href="@{/login}">Login
-								here</a></span>
+						<button type="submit" class="btn btn-primary">Зарегестрироваться</button>
+						<span>Уже зарегестрированы? <a href="/index1" th:href="@{/login}">Войдите тут</a></span>
 					</div>
 				</form>
 			</div>

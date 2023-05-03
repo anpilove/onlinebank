@@ -1,5 +1,14 @@
 package com.anpilov.onlinebank.user;
 
+
+
+/**
+ * The UserRegistrationDto class represents a data transfer object for registering a new user in the online bank system.
+ *
+ * @author Anpilov Kirill
+ * @version 1.0
+ */
+
 public class UserRegistrationDto {
 
 	private String firstName;

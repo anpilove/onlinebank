@@ -6,6 +6,15 @@ import java.util.Collection;
 
 import java.text.DecimalFormat;
 
+
+/**
+ * The User class represents a user in the online bank system.
+ *
+ * @author Anpilov Kirill
+ * @version 1.0
+ */
+
+
 @Entity
 @Table(name = "User", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {
@@ -31,8 +40,8 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
-	@Column(name = "money")
-	private Double money;
+	@Column(name = "balance")
+	private Double balance;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
@@ -49,7 +58,7 @@ public class User {
 		this.email = email;
 		this.password = password;
 		this.dataBirth = dataBirth;
-		this.money = (double) 0;
+		this.balance = (double) 0;
 		this.roles = roles;
 	}
 
@@ -101,12 +110,12 @@ public class User {
 		this.password = password;
 	}
 
-	public Double getMoney() {
-		return money;
+	public Double getBalance() {
+		return balance;
 	}
 
-	public void setMoney(Double money) {
-		this.money = money;
+	public void setBalance(Double money) {
+		this.balance = balance;
 	}
 
 	public Collection<Role> getRoles() {

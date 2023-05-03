@@ -2,7 +2,6 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="initial-scale=1, width=device-width"/>
     <link rel="stylesheet" href="./global.css"/>
     <link rel="stylesheet" href="./index.css"/>
     <link
@@ -32,7 +31,7 @@
             </b>
             <b class="user-name"  th:text="${User.firstName}">Имя</b>
             <div class="count-money">
-                <b class="money"  th:text="${User.money} + '₽'"></b>
+                <b class="money"  th:text="${User.getBalance()} + '₽'"></b>
                 <div class="div1">Всего денег по курсу ЦБ</div>
             </div>
         </div>
@@ -72,7 +71,7 @@
                                     <img class="group-icon3" alt="" src="./public/wallet.svg"/>
                         </td>
                         <th scope="row" class="name">
-                            <div class="div6" th:text="${Tran.id_payee}">Сбермаркет</div>
+                            <div class="div6" th:text="${User.id == Tran.id_payee} ? ${'From: ' + alluser.get(Tran.id_payer)} : ${alluser.get(Tran.id_payee)} ">Сбермаркет</div>
                             <div class="div7" th:text="${Tran.type}">Супермаркеты</div>
                         </th>
 

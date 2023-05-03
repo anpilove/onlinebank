@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Spring Security Demo</title>
+	<meta charset="UTF-8">
+	<title>Аутентификация</title>
 
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
 <style>
-.navbar {
-	background-color: green;
-}
+	.navbar {
+		background-color: gray;
+		height: 62px;
+	}
+
+	.navbar-brand {
+		font-size: 52px;
+	}
+
+
+	.navbar-inverse .navbar-brand {
+		color: black;
+	}
 </style>
 
 <body>
@@ -27,8 +37,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#" th:href="@{/}">Registration and
-					Login</a>
+				<a class="navbar-brand" href="#" th:href="@{/}">Аутентификация</a>
 			</div>
 		</div>
 	</nav>
@@ -44,44 +53,44 @@
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 
-				<h1>User Login Page</h1>
 				<form th:action="@{/login}" method="post">
 
-					<!-- error message -->
 					<div th:if="${param.error}">
-						<div class="alert alert-danger">Invalid username or
-							password.</div>
+						<div class="alert alert-danger">Неправильный логин или пароль.</div>
 					</div>
 
-					<!-- logout message -->
 					<div th:if="${param.logout}">
-						<div class="alert alert-info">You have been logged out.</div>
+						<div class="alert alert-info">Вы вышли.</div>
+					</div>
+
+					<div th:if="${param.email}">
+						<div class="alert alert-info">Почта нужна.</div>
 					</div>
 
 					<div class="form-group">
-						<label for="username"> Username </label> : <input type="text"
+						<label for="username"> Почта </label> : <input type="text"
 							class="form-control" id="username" name="username"
-							placeholder="Enter Email ID" autofocus="autofocus">
+							placeholder="Введите email" autofocus="autofocus">
 					</div>
 
 					<div class="form-group">
-						<label for="password">Password</label>: <input type="password"
+						<label for="password">Пароль</label>: <input type="password"
 							id="password" name="password" class="form-control"
-							placeholder="Enter Password" />
+							placeholder="Введите пароль" />
 					</div>
 
 					<div class="form-group">
 						<div class="row">
 							<div class="col-sm-6 col-sm-offset-3">
 								<input type="submit" name="login-submit" id="login-submit"
-									class="form-control btn btn-primary" value="Log In" />
+									class="form-control btn btn-primary" value="Войти" />
 							</div>
 						</div>
 					</div>
 				</form>
 				<div class="form-group">
-					<span>New user? <a href="/index1" th:href="@{/registration}">Register
-							here</a></span>
+					<span>Новый пользователь? <a href="/index1" th:href="@{/registration}">Зарегестрируетесь
+							здесь</a></span>
 				</div>
 			</div>
 		</div>

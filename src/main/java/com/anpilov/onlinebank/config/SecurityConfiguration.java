@@ -11,17 +11,37 @@ import org.springframework.security.config.annotation.web.configurers.LogoutConf
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+
+/**
+
+ This class provides the configuration for Spring Security.
+ It enables web security and provides various beans for authentication, authorization, and encryption.
+ */
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
 	@Autowired
 	private UserService userService;
 
+
+	/**
+	 * Provides an instance of BCryptPasswordEncoder for password encoding.
+	 *
+	 * @return An instance of BCryptPasswordEncoder.
+	 */
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
+
+
+	/**
+	 * Provides an instance of DaoAuthenticationProvider for authentication.
+	 *
+	 * @return An instance of DaoAuthenticationProvider.
+	 */
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
@@ -30,6 +50,13 @@ public class SecurityConfiguration {
 		return auth;
 	}
 
+	/**
+	 * Configures the security filter chain.
+	 *
+	 * @param http The HttpSecurity object to configure.
+	 * @return A SecurityFilterChain object.
+	 * @throws Exception If an error occurs while configuring the security filter chain.
+	 */
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

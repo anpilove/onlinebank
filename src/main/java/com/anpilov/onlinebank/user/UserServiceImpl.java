@@ -1,5 +1,6 @@
 package com.anpilov.onlinebank.user;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,6 +14,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+/**
+ *This class provides an implementation of the UserService interface to manage users.
+ *@author Anpilov Kirill
+ *@version 1.0
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -55,6 +62,12 @@ public class UserServiceImpl implements UserService {
 
 	public User getById(Long id){
 		return userRepository.findById(id).get();
+	}
+
+
+	@Transactional
+	public void updateBalanceByUser_id(Long userId, Double newBalance) {
+		userRepository.updateBalanceByUser_id(userId, newBalance);
 	}
 
 
