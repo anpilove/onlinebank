@@ -37,18 +37,18 @@
                 <table>
                     <tr>
                         <td>Кому :</td>
-                        <td><input type="text" th:field="*{id_payee}"></td>
-                        <td th:if="${#fields.hasErrors('id_payee')}" th:errors="*{id_payee}">Ошибка!</td>
+                        <td><input type="text" th:field="*{id_payee}" required></td>
+                        <td th:if="${#fields.hasErrors('id_payee')}" th:errors="*{id_payee}" >Ошибка!</td>
                     </tr>
 
                     <tr>
                         <td>Тип операции:</td>
-                        <td><input type="text" th:field="*{type}"></td>
+                        <td><input type="text" th:field="*{type}" required></td>
                     </tr>
 
                     <tr>
                         <td>Сумма:</td>
-                        <td><input type="number" th:field="*{money}"></td>
+                        <td><input type="number" th:field="*{money}" required></td>
                         <td th:if="${#fields.hasErrors('money')}" th:errors="*{money}">Ошибка!</td>
                     </tr>
                     <tr>
