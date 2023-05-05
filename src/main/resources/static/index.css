@@ -1,3 +1,4 @@
+/* Default styles */
 .anpilov-bank,
 .button-analyze {
   position: absolute;
@@ -11,13 +12,13 @@
   border: 0;
   padding: 0;
   background: radial-gradient(
-    50% 50%at 50% 50%,
-    #ff7a00 11.6%,
-    #000 12.22%,
-    #000 59.79%,
-    #ff7a00 62.47%,
-    #ff7a00 72.03%,
-    #000 72.67%
+          50% 50%at 50% 50%,
+          #ff7a00 11.6%,
+          #000 12.22%,
+          #000 59.79%,
+          #ff7a00 62.47%,
+          #ff7a00 72.03%,
+          #000 72.67%
   );
   font-size: var(--font-size-64xl);
   -webkit-background-clip: text;
@@ -26,6 +27,7 @@
   width: 400px;
   height: 83px;
 }
+
 .button-analyze {
   cursor: pointer;
   border: 0;
@@ -36,6 +38,7 @@
   font-weight: 700;
   text-align: center;
 }
+
 .button-analyze,
 .button-author,
 .button-tran,
@@ -44,6 +47,7 @@
   font-family: var(--font-dm-sans);
   color: var(--color-black);
 }
+
 .button-author {
   cursor: pointer;
   border: 0;
@@ -58,10 +62,12 @@
   width: 175px;
   height: 38px;
 }
+
 .button-tran,
 .div {
   text-align: center;
 }
+
 .button-tran {
   cursor: pointer;
   border: 0;
@@ -73,10 +79,12 @@
   font-weight: 700;
   display: inline-block;
 }
+
 .div {
   position: relative;
   font-weight: 500;
 }
+
 .button-exit {
   cursor: pointer;
   border: 2px solid var(--color-black);
@@ -95,6 +103,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .main-header {
   align-self: stretch;
   position: relative;
@@ -103,10 +112,13 @@
   flex-shrink: 0;
   overflow: hidden;
 }
+
 .p {
   margin: 0;
 }
-.b,
+
+
+  .b,
 .div1,
 .money,
 .user-name {
@@ -153,7 +165,7 @@
   position: relative;
   border-radius: 20px;
   background-color: var(--color-gainsboro);
-  width: 350px;
+  width: 20%;
   height: 849px;
   flex-shrink: 0;
   overflow: hidden;
