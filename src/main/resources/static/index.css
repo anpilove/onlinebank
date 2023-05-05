@@ -3,6 +3,7 @@
   position: absolute;
   display: inline-block;
 }
+
 .anpilov-bank {
   cursor: pointer;
   top: 10px;
@@ -401,7 +402,7 @@
 }
 .main {
   background-color: transparent;
-  width: 1935px;
+  width: 100%;
   flex-direction: row;
   padding: var(--padding-3xs) 100px;
   align-items: flex-start;
