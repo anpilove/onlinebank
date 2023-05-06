@@ -73,11 +73,11 @@
     <table id="1" class="table table-striped table-hover">
         <thead>
         <tr>
-            <th scope="col" data-column="payer_id" > ID отправителя</th>
-            <th scope="col" data-column="payee_id" > ID получателя</th>
-            <th scope="col" data-column="data"> Дата</th>
-            <th scope="col" data-column="type" > Тип транзакции</th>
-            <th scope="col" data-column="money"  data-sortable="numeric"> Сумма денег</th>
+            <th scope="col" data-column="payer_id" role="columnheader"> ID отправителя</th>
+            <th scope="col" data-column="payee_id" role="columnheader"> ID получателя</th>
+            <th scope="col" data-column="data" data-sort-method='data'  role="columnheader"> Дата</th>
+            <th scope="col" data-column="type" role="columnheader" > Тип транзакции</th>
+            <th scope="col" data-column="money"  data-sort-method='number' role="columnheader"> Сумма денег</th>
         </tr>
         </thead>
         <tbody>
@@ -152,10 +152,10 @@
 
 <!--    Table sorting-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.0.2/tablesort.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/sorts/tablesort.number.min.js" integrity="sha512-dRD755QRxlybm0h3LXXIGrFcjNakuxW3reZqnPtUkMv6YsSWoJf+slPjY5v4lZvx2ss+wBZQFegepmA7a2W9eA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/sorts/tablesort.date.min.js" integrity="sha512-UK6zo9SpqelwjFJnlPkp/BY3Ce/6kJuJRHhjgNHKnNLfPImnyRCSmXhnbAqxswjZwYIuJmQasZIvT+tFI5SxBQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    <script src='https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.0.2/tablesort.date.js'></script>
     <script>
-        <script>
-            new Tablesort(document.getElementById('1'));
-    </script>
+        new Tablesort(document.getElementById('1'));
     </script>
 
     <div class="container">
