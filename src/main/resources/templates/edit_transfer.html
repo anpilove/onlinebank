@@ -48,9 +48,26 @@
 <blockquote class="blockquote text-center"><h1>Перевод</h1></blockquote>
 <div class="row">
     <div class="col-md-8 offset-md-4">
-        <form action="#" th:action="@{/save}" th:object="${Transaction}" method="post">
+        <form action="#" th:action="@{/save_edit}" th:object="${Transaction}" method="post">
             <table>
-                <tr>
+
+                <tr hidden="hidden">
+                    <td>От :</td>
+                    <td><input type="text" th:field="*{id}" required></td>
+                </tr>
+
+                <tr hidden="hidden">
+                    <td>От :</td>
+                    <td><input type="text" th:field="*{id_payer}" required></td>
+                </tr>
+
+
+                <tr hidden="hidden">
+                    <td>Дата :</td>
+                    <td><input type="text" th:field="*{data}" required></td>
+                </tr>
+
+                <tr hidden="hidden">
                     <td>Кому :</td>
                     <td><input type="text" th:field="*{id_payee}" required></td>
                     <td th:if="${#fields.hasErrors('id_payee')}" th:errors="*{id_payee}">Ошибка!</td>
@@ -61,7 +78,7 @@
                     <td><input type="text" th:field="*{type}" required></td>
                 </tr>
 
-                <tr>
+                <tr hidden="hidden">
                     <td>Сумма:</td>
                     <td><input type="number"  th:step = "0.01" th:min = "0.01" th:field="*{money}" required></td>
                     <td th:if="${#fields.hasErrors('money')}" th:errors="*{money}">Ошибка!</td>

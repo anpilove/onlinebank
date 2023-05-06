@@ -177,7 +177,7 @@ public class MainController {
      @throws InterruptedException if the thread is interrupted while sleeping
      */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveSession(@ModelAttribute("Transaction") Transaction transaction, BindingResult result) throws InterruptedException {
+    public String saveTransaction(@ModelAttribute("Transaction") Transaction transaction, BindingResult result) throws InterruptedException {
 
         User currentUser = getUser();
         Long currentuUserId = currentUser.getId();
@@ -213,20 +213,23 @@ public class MainController {
 
 
 
+    @RequestMapping(value = "/save_edit", method = RequestMethod.POST)
+    public String editTransaction(@ModelAttribute("Transaction") Transaction transaction, BindingResult result) throws InterruptedException {
 
-//    @RequestMapping("/edit/{id}")
-//    public ModelAndView showEditSessionFrom(@PathVariable(name = "id") Long id){
-//        ModelAndView mav = new ModelAndView("edit_transaction");
-//        Transaction transaction = service.get(id);
-//        mav.addObject("Transaction", transaction);
-//        return mav;
-//    }
-//    @RequestMapping("/delete/{id}")
-//    public String deleteSession(@PathVariable(name = "id") Long id){
-//        service.delete(id);
-//        return "redirect:/";
-//
-//    }
+        service.save(transaction);
+        return "redirect:/";
+    }
+
+
+
+
+    @RequestMapping("/edit/{id}")
+    public ModelAndView showEditSessionFrom(@PathVariable(name = "id") Long id){
+        ModelAndView mav = new ModelAndView("edit_transfer");
+        Transaction transaction = service.get(id);
+        mav.addObject("Transaction", transaction);
+        return mav;
+    }
 
 
 }
