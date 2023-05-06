@@ -13,9 +13,10 @@ import org.springframework.security.web.SecurityFilterChain;
 
 
 /**
-
  This class provides the configuration for Spring Security.
  It enables web security and provides various beans for authentication, authorization, and encryption.
+ @author Anpilov Kirill
+ @version 1.0
  */
 
 @Configuration
@@ -27,7 +28,7 @@ public class SecurityConfiguration {
 
 	/**
 	 * Provides an instance of BCryptPasswordEncoder for password encoding.
-	 *
+
 	 * @return An instance of BCryptPasswordEncoder.
 	 */
 	@Bean

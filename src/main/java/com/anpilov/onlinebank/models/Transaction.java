@@ -18,10 +18,11 @@ import org.jetbrains.annotations.NotNull;
 //        ) ENGINE=InnODB DEFAULT CHARSET=UTF8
 
 /**
-
  The Transaction class represents a transaction made between two people.
  Each transaction has an id, payer id, payee id, type, amount of money, date, and details.
  The Transaction class maps to the "Transaction" table in the "OnlineBank" schema.
+ @author Anpilov Kirill
+ @version 1.0
  */
 @Entity
 @Table(name="Transaction", schema="OnlineBank")

@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *This class provides a controller to handle user registration requests.
- *@author Anpilov Kirill
- *@version 1.0
+ @author Anpilov Kirill
+ @version 1.0
  */
 @Controller
 @RequestMapping("/registration")
@@ -20,10 +20,16 @@ public class RegistrationController {
 
 	private UserService userService;
 
+
+	/**
+	 * Constructs a new RegistrationController object with the specified UserService.
+	 * @param userService the UserService to use for user registration
+	 */
 	public RegistrationController(UserService userService) {
 		super();
 		this.userService = userService;
 	}
+
 	/**
 	 *Initializes the user registration form with an empty UserRegistrationDto object.
 	 *@return UserRegistrationDto object with default values.

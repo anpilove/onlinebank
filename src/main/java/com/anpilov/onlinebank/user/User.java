@@ -13,8 +13,6 @@ import java.text.DecimalFormat;
  * @author Anpilov Kirill
  * @version 1.0
  */
-
-
 @Entity
 @Table(name = "User", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User {

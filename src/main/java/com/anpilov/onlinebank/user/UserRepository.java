@@ -13,7 +13,6 @@ import java.util.Optional;
 
 /**
  * The UserRegistrationDto class represents the data transfer object for user registration in the online bank system.
- *
  * @author Anpilov Kirill
  * @version 1.0
  */

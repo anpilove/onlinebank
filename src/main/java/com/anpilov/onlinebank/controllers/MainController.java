@@ -21,10 +21,11 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+
 /**
  This is the main controller class that handles all requests and responses.
  @author Anpilov Kirill
-
  @version 1.0
  */
 @Controller
@@ -61,13 +62,9 @@ public class MainController {
     }
 
     /**
-
      Method to handle requests for the home page.
-
      @param model the model object used to pass data to the view.
-
      @param keyword the search keyword if any.
-
      @return the name of the view to display.
      */
     @RequestMapping("/")
@@ -101,12 +98,10 @@ public class MainController {
 
 
     /**
-
      Method to handle requests for the author page.
      @param model the model object used to pass data to the view.
      @return the name of the view to display.
      */
-
     @RequestMapping("/author")
     public String viewAuthorPage(Model model){
         return "author";
@@ -114,7 +109,6 @@ public class MainController {
 
 
     /**
-
      Method to handle requests for the analytics page.
      @param model the model object used to pass data to the view.
      @param keyword the search keyword if any.
@@ -130,9 +124,7 @@ public class MainController {
         return "analyze";
     }
 
-
     /**
-
      Deletes a session with a specified ID.
      @param id the ID of the session to be deleted
      @return a string that redirects to the analyze page
@@ -145,13 +137,9 @@ public class MainController {
     }
 
 
-
     /**
-
      Shows a form for creating a new transfer.
-
      @param model the model to be used for the form
-
      @return a string representing the view for the new transfer form
      */
     @GetMapping("/transfer")
@@ -163,17 +151,11 @@ public class MainController {
         return "new_transfer";
     }
 
-
     /**
-
      Saves a new transaction.
-
      @param transaction the transaction to be saved
-
      @param result the result of the transaction
-
      @return a string that redirects to the home page
-
      @throws InterruptedException if the thread is interrupted while sleeping
      */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
@@ -204,15 +186,17 @@ public class MainController {
         userService.updateBalanceByUser_id(transaction.getId_payee(), userRepository.findById(transaction.getId_payee()).get().getBalance() + transaction.getMoney());
         service.save(transaction);
 
-
-
-
-
         return "redirect:/";
     }
 
 
-
+    /**
+     Saves a edited transaction.
+     @param transaction the transaction to be saved
+     @param result the result of the transaction
+     @return a string that redirects to the home page
+     @throws InterruptedException if the thread is interrupted while sleeping
+     */
     @RequestMapping(value = "/save_edit", method = RequestMethod.POST)
     public String editTransaction(@ModelAttribute("Transaction") Transaction transaction, BindingResult result) throws InterruptedException {
 
@@ -223,6 +207,13 @@ public class MainController {
 
 
 
+
+    /**
+     * Displays a form for editing a transaction with the specified ID.
+     * @param id the ID of the transaction to edit
+     * @return a ModelAndView object containing the "edit_transfer" view and the Transaction object to edit
+     * @throws IllegalArgumentException if the ID is null or if the transaction with the specified ID cannot be found
+     */
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditSessionFrom(@PathVariable(name = "id") Long id){
         ModelAndView mav = new ModelAndView("edit_transfer");

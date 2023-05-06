@@ -8,7 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 /**
-
  This class represents the configuration for Spring MVC, which is used to
  configure the web application with Spring Framework. It implements the
  WebMvcConfigurer interface to provide custom configuration options.
@@ -16,7 +15,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  URLs to views without the need for a controller.
  @author Anpilov Kirill
  @version 1.0
- @since
  */
 
 @Configuration

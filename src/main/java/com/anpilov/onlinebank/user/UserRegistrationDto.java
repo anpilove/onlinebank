@@ -8,13 +8,31 @@ package com.anpilov.onlinebank.user;
  * @author Anpilov Kirill
  * @version 1.0
  */
-
 public class UserRegistrationDto {
 
+	/**
+	 * The user's first name.
+	 */
 	private String firstName;
+
+	/**
+	 * The user's last name.
+	 */
 	private String lastName;
+
+	/**
+	 * The user's email address.
+	 */
 	private String email;
+
+	/**
+	 * The user's password.
+	 */
 	private String password;
+
+	/**
+	 * The user's date of birth.
+	 */
 	private String dataBirth;
 
 
