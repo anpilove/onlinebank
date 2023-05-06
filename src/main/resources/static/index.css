@@ -441,3 +441,22 @@
   color: var(--color-black);
   font-family: var(--font-dm-sans);
 }
+
+.sort-icon {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  margin-left: 5px;
+}
+
+.sort-up {
+  border-bottom: 4px solid #000;
+}
+
+.sort-down {
+  border-top: 4px solid #000;
+}
+
